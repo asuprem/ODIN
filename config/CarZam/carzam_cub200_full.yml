@@ -1,0 +1,67 @@
+EXECUTION:
+  MODEL_SERVING: None
+  EPOCHS: 120
+  TEST_FREQUENCY: 5
+  OPTIMIZER_BUILDER: ReIDOptimizerBuilder
+  MODEL_BUILDER: carzam_model_builder 
+  TRAINER: None
+  CRAWLER: CUB200_2011DataCrawler
+  GENERATOR: CUB200_2011Generator
+  TRAINER: CarzamTrainer
+
+
+SAVE:
+  MODEL_VERSION: 3
+  MODEL_CORE_NAME: "carzam_cub200"
+  MODEL_BACKBONE: "res50"
+  MODEL_QUALIFIER: "all"
+  DRIVE_BACKUP: True
+  SAVE_FREQUENCY: 5 # Epoch
+
+DATASET:
+  ROOT_DATA_FOLDER: "Data/CUB_200_2011"
+  TRAIN_FOLDER: "images"
+  TEST_FOLDER: ""
+  QUERY_FOLDER: ""
+  SHAPE: [416,416]
+
+TRANSFORMATION:
+  NORMALIZATION_MEAN: 0.5
+  NORMALIZATION_STD: 0.5
+  NORMALIZATION_SCALE: 255
+  H_FLIP: 0
+  T_CROP: False
+  RANDOM_ERASE: False
+  RANDOM_ERASE_VALUE: 0.5
+  CHANNELS: 3
+  BATCH_SIZE: 12
+  INSTANCES: 3
+  WORKERS: 1
+
+MODEL:
+  MODEL_BASE: 'resnet18'
+  MODEL_ARCH: 'CarzamResnet'
+  EMBEDDING_DIMENSIONS: 128
+  MODEL_NORMALIZATION: 'bn'
+  MODEL_KWARGS: '{"proxies":true, "proxy_classes":100, "attention":"cbam", "secondary_attention":1, "input_attention":false}'
+
+LOSS:
+  LOSSES: ['ProxyNCA']
+  LOSS_KWARGS: [{'embedding_size':128,'classes':100}]
+  LOSS_LAMBDAS: [1.0]
+
+OPTIMIZER:
+  OPTIMIZER_NAME: "AdamW"
+  OPTIMIZER_KWARGS: '{}'
+  BASE_LR: 0.001
+  LR_BIAS_FACTOR: 1.0
+  WEIGHT_DECAY: 0.0005
+  WEIGHT_BIAS_FACTOR: 0.0005
+  FP16: True
+
+SCHEDULER:
+  LR_SCHEDULER: 'ExponentialLR'
+  LR_KWARGS: '{"gamma":0.94}'
+
+LOGGING:
+  STEP_VERBOSE: 100 # Batch

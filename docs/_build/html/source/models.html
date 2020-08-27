@@ -1,0 +1,650 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>models package &#8212; EBKAFramework 0.2 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Contextual Invariants" href="modules.html" />
+    <link rel="prev" title="main module" href="main.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="models-package">
+<h1>models package<a class="headerlink" href="#models-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-models.CarzamResnet">
+<span id="models-carzamresnet-module"></span><h2>models.CarzamResnet module<a class="headerlink" href="#module-models.CarzamResnet" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="models.CarzamResnet.CarzamResnet">
+<em class="property">class </em><code class="sig-prename descclassname">models.CarzamResnet.</code><code class="sig-name descname">CarzamResnet</code><span class="sig-paren">(</span><em class="sig-param">base='resnet50'</em>, <em class="sig-param">weights=None</em>, <em class="sig-param">normalization=None</em>, <em class="sig-param">embedding_dimensions=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#models.CarzamResnet.CarzamResnet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#models.abstracts.ReidModel" title="models.abstracts.ReidModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">models.abstracts.ReidModel</span></code></a></p>
+<p>Basic CarZam Resnet model.</p>
+<p>A CarZam model is similar to a Re-ID model. It yields a feature map of an input.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>base</strong> (<em>str</em>) – The architecture base for resnet, i.e. resnet50, resnet18</p></li>
+<li><p><strong>weights</strong> (<em>str</em>) – Path to weights file for the architecture base ONLY.</p></li>
+<li><p><strong>normalization</strong> (<em>str</em>) – Cann be None, where it is torch’s normalization. Else create a normalization layer. Supports: [“bn”, “l2”, “in”, “gn”, “ln”]</p></li>
+<li><p><strong>embedding_dimension</strong> (<em>int</em>) – Dimensions for the feature embedding. Leave empty if feature dimensions should be same as architecture core output (e.g. resnet50 base model has 2048-dim feature outputs). If providing a value, it should be less than the architecture core’s base feature dimensions.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="models.CarzamResnet.CarzamResnet.forward">
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#models.CarzamResnet.CarzamResnet.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Process a batch (TODO add type and shape information)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="models.CarzamResnet.CarzamResnet.base_forward">
+<code class="sig-name descname">base_forward</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="headerlink" href="#models.CarzamResnet.CarzamResnet.base_forward" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="models.CarzamResnet.CarzamResnet.build_base">
+<code class="sig-name descname">build_base</code><span class="sig-paren">(</span><em class="sig-param">base</em>, <em class="sig-param">weights</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#models.CarzamResnet.CarzamResnet.build_base" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build the model base.</p>
+<p>Builds the architecture base/core.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="models.CarzamResnet.CarzamResnet.build_normalization">
+<code class="sig-name descname">build_normalization</code><span class="sig-paren">(</span><em class="sig-param">normalization</em><span class="sig-paren">)</span><a class="headerlink" href="#models.CarzamResnet.CarzamResnet.build_normalization" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt>
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span></dt>
+<dd><p>Defines the computation performed at every call.</p>
+<p>Should be overridden by all subclasses.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although the recipe for forward pass needs to be defined within
+this function, one should call the <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code> instance afterwards
+instead of this since the former takes care of running the
+registered hooks while the latter silently ignores them.</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-models.ResnetBase">
+<span id="models-resnetbase-module"></span><h2>models.ResnetBase module<a class="headerlink" href="#module-models.ResnetBase" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="models.ResnetBase.ResnetBase">
+<em class="property">class </em><code class="sig-prename descclassname">models.ResnetBase.</code><code class="sig-name descname">ResnetBase</code><span class="sig-paren">(</span><em class="sig-param">base='resnet50'</em>, <em class="sig-param">weights=None</em>, <em class="sig-param">normalization=None</em>, <em class="sig-param">embedding_dimensions=None</em>, <em class="sig-param">soft_dimensions=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#models.ResnetBase.ResnetBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#models.abstracts.ReidModel" title="models.abstracts.ReidModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">models.abstracts.ReidModel</span></code></a></p>
+<dl class="method">
+<dt id="models.ResnetBase.ResnetBase.base_forward">
+<code class="sig-name descname">base_forward</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="headerlink" href="#models.ResnetBase.ResnetBase.base_forward" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="models.ResnetBase.ResnetBase.build_base">
+<code class="sig-name descname">build_base</code><span class="sig-paren">(</span><em class="sig-param">base</em>, <em class="sig-param">weights</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#models.ResnetBase.ResnetBase.build_base" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="models.ResnetBase.ResnetBase.build_normalization">
+<code class="sig-name descname">build_normalization</code><span class="sig-paren">(</span><em class="sig-param">normalization</em><span class="sig-paren">)</span><a class="headerlink" href="#models.ResnetBase.ResnetBase.build_normalization" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-models.VAEGAN">
+<span id="models-vaegan-module"></span><h2>models.VAEGAN module<a class="headerlink" href="#module-models.VAEGAN" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="models.VAEGAN.ConvBlock">
+<em class="property">class </em><code class="sig-prename descclassname">models.VAEGAN.</code><code class="sig-name descname">ConvBlock</code><span class="sig-paren">(</span><em class="sig-param">inplanes</em>, <em class="sig-param">planes</em>, <em class="sig-param">kernel_size</em>, <em class="sig-param">stride=2</em>, <em class="sig-param">padding=1</em><span class="sig-paren">)</span><a class="headerlink" href="#models.VAEGAN.ConvBlock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">torch.nn.modules.module.Module</span></code></p>
+<dl class="method">
+<dt id="models.VAEGAN.ConvBlock.forward">
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="headerlink" href="#models.VAEGAN.ConvBlock.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the computation performed at every call.</p>
+<p>Should be overridden by all subclasses.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although the recipe for forward pass needs to be defined within
+this function, one should call the <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code> instance afterwards
+instead of this since the former takes care of running the
+registered hooks while the latter silently ignores them.</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="models.VAEGAN.DeConvBlock">
+<em class="property">class </em><code class="sig-prename descclassname">models.VAEGAN.</code><code class="sig-name descname">DeConvBlock</code><span class="sig-paren">(</span><em class="sig-param">inplanes</em>, <em class="sig-param">planes</em>, <em class="sig-param">kernel_size</em>, <em class="sig-param">stride=2</em>, <em class="sig-param">padding=1</em><span class="sig-paren">)</span><a class="headerlink" href="#models.VAEGAN.DeConvBlock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">torch.nn.modules.module.Module</span></code></p>
+<dl class="method">
+<dt id="models.VAEGAN.DeConvBlock.forward">
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="headerlink" href="#models.VAEGAN.DeConvBlock.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the computation performed at every call.</p>
+<p>Should be overridden by all subclasses.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although the recipe for forward pass needs to be defined within
+this function, one should call the <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code> instance afterwards
+instead of this since the former takes care of running the
+registered hooks while the latter silently ignores them.</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="models.VAEGAN.Decoder">
+<em class="property">class </em><code class="sig-prename descclassname">models.VAEGAN.</code><code class="sig-name descname">Decoder</code><span class="sig-paren">(</span><em class="sig-param">base</em>, <em class="sig-param">latent_dimensions</em>, <em class="sig-param">channels</em>, <em class="sig-param">init='normal'</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#models.VAEGAN.Decoder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">torch.nn.modules.module.Module</span></code></p>
+<dl class="attribute">
+<dt id="models.VAEGAN.Decoder.expansion_base">
+<code class="sig-name descname">expansion_base</code><em class="property"> = 64</em><a class="headerlink" href="#models.VAEGAN.Decoder.expansion_base" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="models.VAEGAN.Decoder.forward">
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="headerlink" href="#models.VAEGAN.Decoder.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the computation performed at every call.</p>
+<p>Should be overridden by all subclasses.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although the recipe for forward pass needs to be defined within
+this function, one should call the <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code> instance afterwards
+instead of this since the former takes care of running the
+registered hooks while the latter silently ignores them.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="models.VAEGAN.Decoder.weight_init_normal">
+<code class="sig-name descname">weight_init_normal</code><span class="sig-paren">(</span><em class="sig-param">m</em>, <em class="sig-param">mean=0.0</em>, <em class="sig-param">std=0.02</em><span class="sig-paren">)</span><a class="headerlink" href="#models.VAEGAN.Decoder.weight_init_normal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="models.VAEGAN.Decoder.weights_init">
+<code class="sig-name descname">weights_init</code><span class="sig-paren">(</span><em class="sig-param">init='normal'</em><span class="sig-paren">)</span><a class="headerlink" href="#models.VAEGAN.Decoder.weights_init" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="models.VAEGAN.Discriminator">
+<em class="property">class </em><code class="sig-prename descclassname">models.VAEGAN.</code><code class="sig-name descname">Discriminator</code><span class="sig-paren">(</span><em class="sig-param">base</em>, <em class="sig-param">channels</em>, <em class="sig-param">init='normal'</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#models.VAEGAN.Discriminator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">torch.nn.modules.module.Module</span></code></p>
+<dl class="attribute">
+<dt id="models.VAEGAN.Discriminator.expansion_base">
+<code class="sig-name descname">expansion_base</code><em class="property"> = 64</em><a class="headerlink" href="#models.VAEGAN.Discriminator.expansion_base" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="models.VAEGAN.Discriminator.forward">
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="headerlink" href="#models.VAEGAN.Discriminator.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the computation performed at every call.</p>
+<p>Should be overridden by all subclasses.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although the recipe for forward pass needs to be defined within
+this function, one should call the <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code> instance afterwards
+instead of this since the former takes care of running the
+registered hooks while the latter silently ignores them.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="models.VAEGAN.Discriminator.weight_init_normal">
+<code class="sig-name descname">weight_init_normal</code><span class="sig-paren">(</span><em class="sig-param">m</em>, <em class="sig-param">mean=0.0</em>, <em class="sig-param">std=0.02</em><span class="sig-paren">)</span><a class="headerlink" href="#models.VAEGAN.Discriminator.weight_init_normal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="models.VAEGAN.Discriminator.weights_init">
+<code class="sig-name descname">weights_init</code><span class="sig-paren">(</span><em class="sig-param">init='normal'</em><span class="sig-paren">)</span><a class="headerlink" href="#models.VAEGAN.Discriminator.weights_init" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="models.VAEGAN.Encoder">
+<em class="property">class </em><code class="sig-prename descclassname">models.VAEGAN.</code><code class="sig-name descname">Encoder</code><span class="sig-paren">(</span><em class="sig-param">base</em>, <em class="sig-param">latent_dimensions</em>, <em class="sig-param">channels</em>, <em class="sig-param">init='normal'</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#models.VAEGAN.Encoder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">torch.nn.modules.module.Module</span></code></p>
+<dl class="attribute">
+<dt id="models.VAEGAN.Encoder.expansion_base">
+<code class="sig-name descname">expansion_base</code><em class="property"> = 64</em><a class="headerlink" href="#models.VAEGAN.Encoder.expansion_base" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="models.VAEGAN.Encoder.forward">
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="headerlink" href="#models.VAEGAN.Encoder.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the computation performed at every call.</p>
+<p>Should be overridden by all subclasses.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although the recipe for forward pass needs to be defined within
+this function, one should call the <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code> instance afterwards
+instead of this since the former takes care of running the
+registered hooks while the latter silently ignores them.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="models.VAEGAN.Encoder.weight_init_normal">
+<code class="sig-name descname">weight_init_normal</code><span class="sig-paren">(</span><em class="sig-param">m</em>, <em class="sig-param">mean=0.0</em>, <em class="sig-param">std=0.02</em><span class="sig-paren">)</span><a class="headerlink" href="#models.VAEGAN.Encoder.weight_init_normal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="models.VAEGAN.Encoder.weights_init">
+<code class="sig-name descname">weights_init</code><span class="sig-paren">(</span><em class="sig-param">init='normal'</em><span class="sig-paren">)</span><a class="headerlink" href="#models.VAEGAN.Encoder.weights_init" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="models.VAEGAN.LatentDiscriminator">
+<em class="property">class </em><code class="sig-prename descclassname">models.VAEGAN.</code><code class="sig-name descname">LatentDiscriminator</code><span class="sig-paren">(</span><em class="sig-param">latent_dimensions</em>, <em class="sig-param">init='normal'</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#models.VAEGAN.LatentDiscriminator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">torch.nn.modules.module.Module</span></code></p>
+<dl class="attribute">
+<dt id="models.VAEGAN.LatentDiscriminator.expansion_base">
+<code class="sig-name descname">expansion_base</code><em class="property"> = 64</em><a class="headerlink" href="#models.VAEGAN.LatentDiscriminator.expansion_base" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="models.VAEGAN.LatentDiscriminator.forward">
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="headerlink" href="#models.VAEGAN.LatentDiscriminator.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the computation performed at every call.</p>
+<p>Should be overridden by all subclasses.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although the recipe for forward pass needs to be defined within
+this function, one should call the <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code> instance afterwards
+instead of this since the former takes care of running the
+registered hooks while the latter silently ignores them.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="models.VAEGAN.LatentDiscriminator.weight_init_normal">
+<code class="sig-name descname">weight_init_normal</code><span class="sig-paren">(</span><em class="sig-param">m</em>, <em class="sig-param">mean=0.0</em>, <em class="sig-param">std=0.02</em><span class="sig-paren">)</span><a class="headerlink" href="#models.VAEGAN.LatentDiscriminator.weight_init_normal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="models.VAEGAN.LatentDiscriminator.weights_init">
+<code class="sig-name descname">weights_init</code><span class="sig-paren">(</span><em class="sig-param">init='normal'</em><span class="sig-paren">)</span><a class="headerlink" href="#models.VAEGAN.LatentDiscriminator.weights_init" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="models.VAEGAN.VAEGAN">
+<em class="property">class </em><code class="sig-prename descclassname">models.VAEGAN.</code><code class="sig-name descname">VAEGAN</code><span class="sig-paren">(</span><em class="sig-param">base=32</em>, <em class="sig-param">latent_dimensions=128</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#models.VAEGAN.VAEGAN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">torch.nn.modules.module.Module</span></code></p>
+<dl class="method">
+<dt id="models.VAEGAN.VAEGAN.forward">
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="headerlink" href="#models.VAEGAN.VAEGAN.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the computation performed at every call.</p>
+<p>Should be overridden by all subclasses.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although the recipe for forward pass needs to be defined within
+this function, one should call the <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code> instance afterwards
+instead of this since the former takes care of running the
+registered hooks while the latter silently ignores them.</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-models.abstracts">
+<span id="models-abstracts-module"></span><h2>models.abstracts module<a class="headerlink" href="#module-models.abstracts" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="models.abstracts.ReidModel">
+<em class="property">class </em><code class="sig-prename descclassname">models.abstracts.</code><code class="sig-name descname">ReidModel</code><span class="sig-paren">(</span><em class="sig-param">base</em>, <em class="sig-param">weights=None</em>, <em class="sig-param">normalization=None</em>, <em class="sig-param">embedding_dimensions=None</em>, <em class="sig-param">soft_dimensions=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#models.abstracts.ReidModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">torch.nn.modules.module.Module</span></code></p>
+<dl class="class">
+<dt id="models.abstracts.ReidModel.LambdaLayer">
+<em class="property">class </em><code class="sig-name descname">LambdaLayer</code><span class="sig-paren">(</span><em class="sig-param">lambd</em><span class="sig-paren">)</span><a class="headerlink" href="#models.abstracts.ReidModel.LambdaLayer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">torch.nn.modules.module.Module</span></code></p>
+<p>Torch lambda layer to act as an empty layer. It does not do anything</p>
+<dl class="method">
+<dt id="models.abstracts.ReidModel.LambdaLayer.forward">
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="headerlink" href="#models.abstracts.ReidModel.LambdaLayer.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the computation performed at every call.</p>
+<p>Should be overridden by all subclasses.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although the recipe for forward pass needs to be defined within
+this function, one should call the <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code> instance afterwards
+instead of this since the former takes care of running the
+registered hooks while the latter silently ignores them.</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="method">
+<dt id="models.abstracts.ReidModel.base_forward">
+<code class="sig-name descname">base_forward</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="headerlink" href="#models.abstracts.ReidModel.base_forward" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="models.abstracts.ReidModel.build_base">
+<code class="sig-name descname">build_base</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#models.abstracts.ReidModel.build_base" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="models.abstracts.ReidModel.build_normalization">
+<code class="sig-name descname">build_normalization</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#models.abstracts.ReidModel.build_normalization" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="models.abstracts.ReidModel.forward">
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="headerlink" href="#models.abstracts.ReidModel.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the computation performed at every call.</p>
+<p>Should be overridden by all subclasses.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although the recipe for forward pass needs to be defined within
+this function, one should call the <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code> instance afterwards
+instead of this since the former takes care of running the
+registered hooks while the latter silently ignores them.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="models.abstracts.ReidModel.partial_load">
+<code class="sig-name descname">partial_load</code><span class="sig-paren">(</span><em class="sig-param">weights_path</em><span class="sig-paren">)</span><a class="headerlink" href="#models.abstracts.ReidModel.partial_load" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="models.abstracts.ReidModel.weights_init_kaiming">
+<code class="sig-name descname">weights_init_kaiming</code><span class="sig-paren">(</span><em class="sig-param">m</em><span class="sig-paren">)</span><a class="headerlink" href="#models.abstracts.ReidModel.weights_init_kaiming" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="models.abstracts.ReidModel.weights_init_softmax">
+<code class="sig-name descname">weights_init_softmax</code><span class="sig-paren">(</span><em class="sig-param">m</em><span class="sig-paren">)</span><a class="headerlink" href="#models.abstracts.ReidModel.weights_init_softmax" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize linear weights to standard normal. Mean 0. Standard Deviation 0.001</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-models">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-models" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="models.carzam_model_builder">
+<code class="sig-prename descclassname">models.</code><code class="sig-name descname">carzam_model_builder</code><span class="sig-paren">(</span><em class="sig-param">arch</em>, <em class="sig-param">base</em>, <em class="sig-param">weights=None</em>, <em class="sig-param">normalization=None</em>, <em class="sig-param">embedding_dimensions=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#models.carzam_model_builder" title="Permalink to this definition">¶</a></dt>
+<dd><p>CarZam model builder.</p>
+<dl class="simple">
+<dt>This builds a simple single model (NOT teamed classifier) for CarZam. Refer to paper [] for general construction. The model contains:</dt><dd><ul class="simple">
+<li><p>Architecture core</p></li>
+<li><p>Convolutional attention</p></li>
+<li><p>Spatial average pooling</p></li>
+<li><p>FC-Layer for embedding dimensionality change</p></li>
+<li><p>Normalization layer</p></li>
+<li><p>Softmax FC Layers</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>arch</strong> (<em>str</em>) – Ther architecture to use. The string “Base” is added after architecture (e.g. “Resnet”, “Inception”). Only “Resnet” is currently supported.</p></li>
+<li><p><strong>base</strong> (<em>str</em>) – The architecture subtype, e.g. “resnet50”, “resnet18”</p></li>
+<li><p><strong>weights</strong> (<em>str</em>) – Local path to weights file for the architecture core, e.g. pretrained resnet50 weights path.</p></li>
+<li><p><strong>normalization</strong> (<em>str</em>) – Normalization layer for reid-model. Can be None. Supported normalizations: [“bn”, “l2”, “in”, “gn”, “ln”]</p></li>
+<li><p><strong>embedding_dimension</strong> (<em>int</em>) – Dimensions for the feature embedding. Leave empty if feature dimensions should be same as architecture core output (e.g. resnet50 base model has 2048-dim feature outputs). If providing a value, it should be less than the architecture core’s base feature dimensions</p></li>
+<li><p><strong>soft_dimensions</strong> (<em>int</em>) – Feature dimensions for softmax FC layer. Can be None if not using it. Should be equal to the number of identities in the dataset.</p></li>
+<li><p><strong>kwargs</strong> (<em>dict</em>) – Nothing yet</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A Torch Re-ID model</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Torch Model</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="models.model_builder">
+<code class="sig-prename descclassname">models.</code><code class="sig-name descname">model_builder</code><span class="sig-paren">(</span><em class="sig-param">arch</em>, <em class="sig-param">base</em>, <em class="sig-param">weights=None</em>, <em class="sig-param">normalization=None</em>, <em class="sig-param">embedding_dimensions=None</em>, <em class="sig-param">soft_dimensions=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#models.model_builder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Vehicle Re-id model builder.</p>
+<dl class="simple">
+<dt>This builds a model for vehicle re-id. Refer to paper [] for general construction. The model contains:</dt><dd><ul class="simple">
+<li><p>Architecture core</p></li>
+<li><p>Convolutional attention</p></li>
+<li><p>Spatial average pooling</p></li>
+<li><p>FC-Layer for embedding dimensionality change</p></li>
+<li><p>Normalization layer</p></li>
+<li><p>Softmax FC Layers</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>arch</strong> (<em>str</em>) – Ther architecture to use. The string “Base” is added after architecture (e.g. “Resnet”, “Inception”). Only “Resnet” is currently supported.</p></li>
+<li><p><strong>base</strong> (<em>str</em>) – The architecture subtype, e.g. “resnet50”, “resnet18”</p></li>
+<li><p><strong>weights</strong> (<em>str</em>) – Local path to weights file for the architecture core, e.g. pretrained resnet50 weights path.</p></li>
+<li><p><strong>normalization</strong> (<em>str</em>) – Normalization layer for reid-model. Can be None. Supported normalizations: [“bn”, “l2”, “in”, “gn”, “ln”]</p></li>
+<li><p><strong>embedding_dimension</strong> (<em>int</em>) – Dimensions for the feature embedding. Leave empty if feature dimensions should be same as architecture core output (e.g. resnet50 base model has 2048-dim feature outputs). If providing a value, it should be less than the architecture core’s base feature dimensions</p></li>
+<li><p><strong>soft_dimensions</strong> (<em>int</em>) – Feature dimensions for softmax FC layer. Can be None if not using it. Should be equal to the number of identities in the dataset.</p></li>
+<li><p><strong>kwargs</strong> (<em>dict</em>) – Nothing yet</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A Torch Re-ID model</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Torch Model</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="models.vaegan_model_builder">
+<code class="sig-prename descclassname">models.</code><code class="sig-name descname">vaegan_model_builder</code><span class="sig-paren">(</span><em class="sig-param">arch</em>, <em class="sig-param">base</em>, <em class="sig-param">latent_dimensions=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#models.vaegan_model_builder" title="Permalink to this definition">¶</a></dt>
+<dd><p>VAE-GAN Model builder.</p>
+<p>This builds the VAAE-GAN model used in paper []</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>arch</strong> (<em>str</em>) – The architecture to use. Only “VAEGAN” is supported.</p></li>
+<li><p><strong>base</strong> (<em>int</em>) – Dimensionality of the input images. MUST be a power of 2.</p></li>
+<li><p><strong>latent_dimensions</strong> (<em>int</em>) – Embedding dimension for the encoder of the VAAE-GAN.</p></li>
+<li><p><strong>kwargs</strong> (<em>dict</em>) – Needs the following:
+channels (int): Number of channels in image. Default 3. 1 for MNIST.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A Torch-based VAAE-GAN model</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Torch Model</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="models.veri_model_builder">
+<code class="sig-prename descclassname">models.</code><code class="sig-name descname">veri_model_builder</code><span class="sig-paren">(</span><em class="sig-param">arch</em>, <em class="sig-param">base</em>, <em class="sig-param">weights=None</em>, <em class="sig-param">normalization=None</em>, <em class="sig-param">embedding_dimensions=None</em>, <em class="sig-param">soft_dimensions=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#models.veri_model_builder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Vehicle Re-id model builder.</p>
+<dl class="simple">
+<dt>This builds a model for vehicle re-id. Refer to paper [] for general construction. The model contains:</dt><dd><ul class="simple">
+<li><p>Architecture core</p></li>
+<li><p>Convolutional attention</p></li>
+<li><p>Spatial average pooling</p></li>
+<li><p>FC-Layer for embedding dimensionality change</p></li>
+<li><p>Normalization layer</p></li>
+<li><p>Softmax FC Layers</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>arch</strong> (<em>str</em>) – Ther architecture to use. The string “Base” is added after architecture (e.g. “Resnet”, “Inception”). Only “Resnet” is currently supported.</p></li>
+<li><p><strong>base</strong> (<em>str</em>) – The architecture subtype, e.g. “resnet50”, “resnet18”</p></li>
+<li><p><strong>weights</strong> (<em>str</em>) – Local path to weights file for the architecture core, e.g. pretrained resnet50 weights path.</p></li>
+<li><p><strong>normalization</strong> (<em>str</em>) – Normalization layer for reid-model. Can be None. Supported normalizations: [“bn”, “l2”, “in”, “gn”, “ln”]</p></li>
+<li><p><strong>embedding_dimension</strong> (<em>int</em>) – Dimensions for the feature embedding. Leave empty if feature dimensions should be same as architecture core output (e.g. resnet50 base model has 2048-dim feature outputs). If providing a value, it should be less than the architecture core’s base feature dimensions</p></li>
+<li><p><strong>soft_dimensions</strong> (<em>int</em>) – Feature dimensions for softmax FC layer. Can be None if not using it. Should be equal to the number of identities in the dataset.</p></li>
+<li><p><strong>kwargs</strong> (<em>dict</em>) – Nothing yet</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A Torch Re-ID model</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Torch Model</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">EBKAFramework</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="backbones.html">backbones package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="carzam.html">carzam module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="crawlers.html">crawlers package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generators.html">generators package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loss.builders.html">loss.builders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loss.html">loss package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="main.html">main module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">models package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-models.CarzamResnet">models.CarzamResnet module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-models.ResnetBase">models.ResnetBase module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-models.VAEGAN">models.VAEGAN module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-models.abstracts">models.abstracts module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-models">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Contextual Invariants</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="backbones.html">backbones package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="carzam.html">carzam module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="crawlers.html">crawlers package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generators.html">generators package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="loss.html">loss package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html">main module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">models package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-models.CarzamResnet">models.CarzamResnet module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-models.ResnetBase">models.ResnetBase module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-models.VAEGAN">models.VAEGAN module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-models.abstracts">models.abstracts module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-models">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="optimizer.html">optimizer package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scheduler.html">scheduler package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trainer.html">trainer package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html">utils package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vae_gan.html">vae_gan module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="optimizer.html">optimizer package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scheduler.html">scheduler package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="trainer.html">trainer package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vae_gan.html">vae_gan module</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="main.html" title="previous chapter">main module</a></li>
+      <li>Next: <a href="modules.html" title="next chapter">Contextual Invariants</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Abhijit Supre.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/source/models.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,273 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>trainer package &#8212; EBKAFramework 0.2 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="utils package" href="utils.html" />
+    <link rel="prev" title="scheduler package" href="scheduler.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="trainer-package">
+<h1>trainer package<a class="headerlink" href="#trainer-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-trainer.SimpleTrainer">
+<span id="trainer-simpletrainer-module"></span><h2>trainer.SimpleTrainer module<a class="headerlink" href="#module-trainer.SimpleTrainer" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="trainer.SimpleTrainer.SimpleTrainer">
+<em class="property">class </em><code class="sig-prename descclassname">trainer.SimpleTrainer.</code><code class="sig-name descname">SimpleTrainer</code><span class="sig-paren">(</span><em class="sig-param">model</em>, <em class="sig-param">loss_fn</em>, <em class="sig-param">optimizer</em>, <em class="sig-param">scheduler</em>, <em class="sig-param">train_loader</em>, <em class="sig-param">test_loader</em>, <em class="sig-param">queries</em>, <em class="sig-param">epochs</em>, <em class="sig-param">logger</em><span class="sig-paren">)</span><a class="headerlink" href="#trainer.SimpleTrainer.SimpleTrainer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="trainer.SimpleTrainer.SimpleTrainer.apex">
+<code class="sig-name descname">apex</code><em class="property"> = None</em><a class="headerlink" href="#trainer.SimpleTrainer.SimpleTrainer.apex" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="trainer.SimpleTrainer.SimpleTrainer.cmc">
+<code class="sig-name descname">cmc</code><span class="sig-paren">(</span><em class="sig-param">distmat</em>, <em class="sig-param">query_ids=None</em>, <em class="sig-param">gallery_ids=None</em>, <em class="sig-param">query_cams=None</em>, <em class="sig-param">gallery_cams=None</em>, <em class="sig-param">topk=100</em>, <em class="sig-param">separate_camera_set=False</em>, <em class="sig-param">single_gallery_shot=False</em>, <em class="sig-param">first_match_break=False</em><span class="sig-paren">)</span><a class="headerlink" href="#trainer.SimpleTrainer.SimpleTrainer.cmc" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="trainer.SimpleTrainer.SimpleTrainer.cosine_query_to_gallery_distances">
+<code class="sig-name descname">cosine_query_to_gallery_distances</code><span class="sig-paren">(</span><em class="sig-param">qf</em>, <em class="sig-param">gf</em><span class="sig-paren">)</span><a class="headerlink" href="#trainer.SimpleTrainer.SimpleTrainer.cosine_query_to_gallery_distances" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="trainer.SimpleTrainer.SimpleTrainer.eval_func">
+<code class="sig-name descname">eval_func</code><span class="sig-paren">(</span><em class="sig-param">distmat</em>, <em class="sig-param">q_pids</em>, <em class="sig-param">g_pids</em>, <em class="sig-param">q_camids</em>, <em class="sig-param">g_camids</em>, <em class="sig-param">max_rank=50</em><span class="sig-paren">)</span><a class="headerlink" href="#trainer.SimpleTrainer.SimpleTrainer.eval_func" title="Permalink to this definition">¶</a></dt>
+<dd><p>Evaluation with market1501 metric
+Key: for each query identity, its gallery images from the same camera view are discarded.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="trainer.SimpleTrainer.SimpleTrainer.eval_veri">
+<code class="sig-name descname">eval_veri</code><span class="sig-paren">(</span><em class="sig-param">distmat</em>, <em class="sig-param">q_pids</em>, <em class="sig-param">g_pids</em>, <em class="sig-param">q_camids</em>, <em class="sig-param">g_camids</em>, <em class="sig-param">max_rank</em><span class="sig-paren">)</span><a class="headerlink" href="#trainer.SimpleTrainer.SimpleTrainer.eval_veri" title="Permalink to this definition">¶</a></dt>
+<dd><p>Evaluation with veri metric
+Key: for each query identity, its gallery images from the same camera view are discarded.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="trainer.SimpleTrainer.SimpleTrainer.evaluate">
+<code class="sig-name descname">evaluate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trainer.SimpleTrainer.SimpleTrainer.evaluate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="trainer.SimpleTrainer.SimpleTrainer.load">
+<code class="sig-name descname">load</code><span class="sig-paren">(</span><em class="sig-param">load_epoch</em><span class="sig-paren">)</span><a class="headerlink" href="#trainer.SimpleTrainer.SimpleTrainer.load" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="trainer.SimpleTrainer.SimpleTrainer.mean_ap">
+<code class="sig-name descname">mean_ap</code><span class="sig-paren">(</span><em class="sig-param">distmat</em>, <em class="sig-param">query_ids=None</em>, <em class="sig-param">gallery_ids=None</em>, <em class="sig-param">query_cams=None</em>, <em class="sig-param">gallery_cams=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trainer.SimpleTrainer.SimpleTrainer.mean_ap" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="trainer.SimpleTrainer.SimpleTrainer.query_to_gallery_distances">
+<code class="sig-name descname">query_to_gallery_distances</code><span class="sig-paren">(</span><em class="sig-param">qf</em>, <em class="sig-param">gf</em><span class="sig-paren">)</span><a class="headerlink" href="#trainer.SimpleTrainer.SimpleTrainer.query_to_gallery_distances" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="trainer.SimpleTrainer.SimpleTrainer.save">
+<code class="sig-name descname">save</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trainer.SimpleTrainer.SimpleTrainer.save" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="trainer.SimpleTrainer.SimpleTrainer.setup">
+<code class="sig-name descname">setup</code><span class="sig-paren">(</span><em class="sig-param">step_verbose=5</em>, <em class="sig-param">save_frequency=5</em>, <em class="sig-param">test_frequency=5</em>, <em class="sig-param">save_directory='./checkpoint/'</em>, <em class="sig-param">save_backup=False</em>, <em class="sig-param">backup_directory=None</em>, <em class="sig-param">gpus=1</em>, <em class="sig-param">fp16=False</em>, <em class="sig-param">model_save_name=None</em>, <em class="sig-param">logger_file=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trainer.SimpleTrainer.SimpleTrainer.setup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="trainer.SimpleTrainer.SimpleTrainer.step">
+<code class="sig-name descname">step</code><span class="sig-paren">(</span><em class="sig-param">batch</em><span class="sig-paren">)</span><a class="headerlink" href="#trainer.SimpleTrainer.SimpleTrainer.step" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="trainer.SimpleTrainer.SimpleTrainer.train">
+<code class="sig-name descname">train</code><span class="sig-paren">(</span><em class="sig-param">continue_epoch=0</em><span class="sig-paren">)</span><a class="headerlink" href="#trainer.SimpleTrainer.SimpleTrainer.train" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-trainer.VAEGANTrainer">
+<span id="trainer-vaegantrainer-module"></span><h2>trainer.VAEGANTrainer module<a class="headerlink" href="#module-trainer.VAEGANTrainer" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="trainer.VAEGANTrainer.VAEGANTrainer">
+<em class="property">class </em><code class="sig-prename descclassname">trainer.VAEGANTrainer.</code><code class="sig-name descname">VAEGANTrainer</code><span class="sig-paren">(</span><em class="sig-param">model</em>, <em class="sig-param">loss_fn</em>, <em class="sig-param">optimizer</em>, <em class="sig-param">scheduler</em>, <em class="sig-param">train_loader</em>, <em class="sig-param">test_loader</em>, <em class="sig-param">epochs</em>, <em class="sig-param">batch_size</em>, <em class="sig-param">latent_size</em>, <em class="sig-param">logger</em><span class="sig-paren">)</span><a class="headerlink" href="#trainer.VAEGANTrainer.VAEGANTrainer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="trainer.VAEGANTrainer.VAEGANTrainer.evaluate">
+<code class="sig-name descname">evaluate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trainer.VAEGANTrainer.VAEGANTrainer.evaluate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="trainer.VAEGANTrainer.VAEGANTrainer.load">
+<code class="sig-name descname">load</code><span class="sig-paren">(</span><em class="sig-param">load_epoch</em><span class="sig-paren">)</span><a class="headerlink" href="#trainer.VAEGANTrainer.VAEGANTrainer.load" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="trainer.VAEGANTrainer.VAEGANTrainer.save">
+<code class="sig-name descname">save</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trainer.VAEGANTrainer.VAEGANTrainer.save" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="trainer.VAEGANTrainer.VAEGANTrainer.setup">
+<code class="sig-name descname">setup</code><span class="sig-paren">(</span><em class="sig-param">step_verbose=5</em>, <em class="sig-param">save_frequency=5</em>, <em class="sig-param">test_frequency=5</em>, <em class="sig-param">save_directory='./checkpoint/'</em>, <em class="sig-param">save_backup=False</em>, <em class="sig-param">backup_directory=None</em>, <em class="sig-param">gpus=1</em>, <em class="sig-param">fp16=False</em>, <em class="sig-param">model_save_name=None</em>, <em class="sig-param">logger_file=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trainer.VAEGANTrainer.VAEGANTrainer.setup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="trainer.VAEGANTrainer.VAEGANTrainer.step">
+<code class="sig-name descname">step</code><span class="sig-paren">(</span><em class="sig-param">batch</em><span class="sig-paren">)</span><a class="headerlink" href="#trainer.VAEGANTrainer.VAEGANTrainer.step" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="trainer.VAEGANTrainer.VAEGANTrainer.train">
+<code class="sig-name descname">train</code><span class="sig-paren">(</span><em class="sig-param">continue_epoch=0</em><span class="sig-paren">)</span><a class="headerlink" href="#trainer.VAEGANTrainer.VAEGANTrainer.train" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-trainer">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-trainer" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">EBKAFramework</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="backbones.html">backbones package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="carzam.html">carzam module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="crawlers.html">crawlers package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generators.html">generators package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loss.builders.html">loss.builders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loss.html">loss package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="main.html">main module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models.html">models package</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Contextual Invariants</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="backbones.html">backbones package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="carzam.html">carzam module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="crawlers.html">crawlers package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generators.html">generators package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="loss.html">loss package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html">main module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="models.html">models package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimizer.html">optimizer package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scheduler.html">scheduler package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">trainer package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-trainer.SimpleTrainer">trainer.SimpleTrainer module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-trainer.VAEGANTrainer">trainer.VAEGANTrainer module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-trainer">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html">utils package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vae_gan.html">vae_gan module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="optimizer.html">optimizer package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scheduler.html">scheduler package</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">trainer package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-trainer.SimpleTrainer">trainer.SimpleTrainer module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-trainer.VAEGANTrainer">trainer.VAEGANTrainer module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-trainer">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vae_gan.html">vae_gan module</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">Contextual Invariants</a><ul>
+      <li>Previous: <a href="scheduler.html" title="previous chapter">scheduler package</a></li>
+      <li>Next: <a href="utils.html" title="next chapter">utils package</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Abhijit Supre.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/source/trainer.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

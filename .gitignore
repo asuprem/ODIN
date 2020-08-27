@@ -1,0 +1,40 @@
+# General ignores
+.vscode
+*.pyc
+
+# Folder ignores
+Data
+goof
+drive
+venv
+
+# Ignore model artifacts
+*.pth
+**/*.pth
+
+# Ignore compression artifacts
+*.zip
+**/*.zip
+
+# Ignore log artifacts
+*.log
+**/*.log*
+
+# Ignore unnecessary configurations
+**/*.yml
+
+
+# Allow 
+!config/veri_base.yml
+!config/vaegan_base.yml
+!config/carzam_cars196.yml
+!config/vric_final.yml
+!config/vric_final2.yml
+
+!config/CarZam/carzam_cars_full.yml
+!config/CarZam/carzam_cub200_full.yml
+
+
+# Other ignores
+notebooks.md
+

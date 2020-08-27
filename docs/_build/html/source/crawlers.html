@@ -1,0 +1,247 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>crawlers package &#8212; EBKAFramework 0.2 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="generators package" href="generators.html" />
+    <link rel="prev" title="carzam module" href="carzam.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="crawlers-package">
+<h1>crawlers package<a class="headerlink" href="#crawlers-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-crawlers.Cars196DataCrawler">
+<span id="crawlers-cars196datacrawler-module"></span><h2>crawlers.Cars196DataCrawler module<a class="headerlink" href="#module-crawlers.Cars196DataCrawler" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="crawlers.Cars196DataCrawler.Cars196DataCrawler">
+<em class="property">class </em><code class="sig-prename descclassname">crawlers.Cars196DataCrawler.</code><code class="sig-name descname">Cars196DataCrawler</code><span class="sig-paren">(</span><em class="sig-param">data_folder='Cars196'</em>, <em class="sig-param">train_folder='cars_train'</em>, <em class="sig-param">test_folder='cars_test'</em>, <em class="sig-param">query_folder=''</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#crawlers.Cars196DataCrawler.Cars196DataCrawler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="crawlers.Cars196DataCrawler.Cars196DataCrawler.crawl">
+<code class="sig-name descname">crawl</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#crawlers.Cars196DataCrawler.Cars196DataCrawler.crawl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-crawlers.ClassedCrawler">
+<span id="crawlers-classedcrawler-module"></span><h2>crawlers.ClassedCrawler module<a class="headerlink" href="#module-crawlers.ClassedCrawler" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="crawlers.ClassedCrawler.ClassedCrawler">
+<em class="property">class </em><code class="sig-prename descclassname">crawlers.ClassedCrawler.</code><code class="sig-name descname">ClassedCrawler</code><span class="sig-paren">(</span><em class="sig-param">data_folder='VeRi'</em>, <em class="sig-param">train_folder='image_train'</em>, <em class="sig-param">test_folder='image_test'</em>, <em class="sig-param">query_folder='image_query'</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#crawlers.ClassedCrawler.ClassedCrawler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Extracts objects of a specific set of classes only</p>
+<dl class="method">
+<dt id="crawlers.ClassedCrawler.ClassedCrawler.crawl">
+<code class="sig-name descname">crawl</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#crawlers.ClassedCrawler.ClassedCrawler.crawl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-crawlers.MTMCDataCrawler">
+<span id="crawlers-mtmcdatacrawler-module"></span><h2>crawlers.MTMCDataCrawler module<a class="headerlink" href="#module-crawlers.MTMCDataCrawler" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="crawlers.MTMCDataCrawler.MTMCDataCrawler">
+<em class="property">class </em><code class="sig-prename descclassname">crawlers.MTMCDataCrawler.</code><code class="sig-name descname">MTMCDataCrawler</code><span class="sig-paren">(</span><em class="sig-param">data_folder='DukeMTMC'</em>, <em class="sig-param">train_folder='bounding_box_train'</em>, <em class="sig-param">test_folder='bounding_box_test'</em>, <em class="sig-param">query_folder='query'</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#crawlers.MTMCDataCrawler.MTMCDataCrawler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="crawlers.MTMCDataCrawler.MTMCDataCrawler.crawl">
+<code class="sig-name descname">crawl</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#crawlers.MTMCDataCrawler.MTMCDataCrawler.crawl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-crawlers.Market1501DataCrawler">
+<span id="crawlers-market1501datacrawler-module"></span><h2>crawlers.Market1501DataCrawler module<a class="headerlink" href="#module-crawlers.Market1501DataCrawler" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="crawlers.Market1501DataCrawler.Market1501DataCrawler">
+<em class="property">class </em><code class="sig-prename descclassname">crawlers.Market1501DataCrawler.</code><code class="sig-name descname">Market1501DataCrawler</code><span class="sig-paren">(</span><em class="sig-param">data_folder='Market1501'</em>, <em class="sig-param">train_folder='bounding_box_train'</em>, <em class="sig-param">test_folder='bounding_box_test'</em>, <em class="sig-param">query_folder='query'</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#crawlers.Market1501DataCrawler.Market1501DataCrawler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="crawlers.Market1501DataCrawler.Market1501DataCrawler.crawl">
+<code class="sig-name descname">crawl</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#crawlers.Market1501DataCrawler.Market1501DataCrawler.crawl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-crawlers.ReidDataCrawler">
+<span id="crawlers-reiddatacrawler-module"></span><h2>crawlers.ReidDataCrawler module<a class="headerlink" href="#module-crawlers.ReidDataCrawler" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="crawlers.ReidDataCrawler.ReidDataCrawler">
+<em class="property">class </em><code class="sig-prename descclassname">crawlers.ReidDataCrawler.</code><code class="sig-name descname">ReidDataCrawler</code><span class="sig-paren">(</span><em class="sig-param">data_folder='VeRi'</em>, <em class="sig-param">train_folder='image_train'</em>, <em class="sig-param">test_folder='image_test'</em>, <em class="sig-param">query_folder='image_query'</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#crawlers.ReidDataCrawler.ReidDataCrawler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="crawlers.ReidDataCrawler.ReidDataCrawler.crawl">
+<code class="sig-name descname">crawl</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#crawlers.ReidDataCrawler.ReidDataCrawler.crawl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-crawlers.VRICDataCrawler">
+<span id="crawlers-vricdatacrawler-module"></span><h2>crawlers.VRICDataCrawler module<a class="headerlink" href="#module-crawlers.VRICDataCrawler" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="crawlers.VRICDataCrawler.VRICDataCrawler">
+<em class="property">class </em><code class="sig-prename descclassname">crawlers.VRICDataCrawler.</code><code class="sig-name descname">VRICDataCrawler</code><span class="sig-paren">(</span><em class="sig-param">data_folder='VRIC'</em>, <em class="sig-param">train_folder='train_images'</em>, <em class="sig-param">test_folder='gallery_images'</em>, <em class="sig-param">query_folder='probe_images'</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#crawlers.VRICDataCrawler.VRICDataCrawler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="crawlers.VRICDataCrawler.VRICDataCrawler.crawl">
+<code class="sig-name descname">crawl</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#crawlers.VRICDataCrawler.VRICDataCrawler.crawl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-crawlers">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-crawlers" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">EBKAFramework</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="backbones.html">backbones package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="carzam.html">carzam module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">crawlers package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-crawlers.Cars196DataCrawler">crawlers.Cars196DataCrawler module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-crawlers.ClassedCrawler">crawlers.ClassedCrawler module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-crawlers.MTMCDataCrawler">crawlers.MTMCDataCrawler module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-crawlers.Market1501DataCrawler">crawlers.Market1501DataCrawler module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-crawlers.ReidDataCrawler">crawlers.ReidDataCrawler module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-crawlers.VRICDataCrawler">crawlers.VRICDataCrawler module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-crawlers">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="generators.html">generators package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loss.builders.html">loss.builders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loss.html">loss package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="main.html">main module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models.html">models package</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Contextual Invariants</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="backbones.html">backbones package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="carzam.html">carzam module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">crawlers package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-crawlers.Cars196DataCrawler">crawlers.Cars196DataCrawler module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-crawlers.ClassedCrawler">crawlers.ClassedCrawler module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-crawlers.MTMCDataCrawler">crawlers.MTMCDataCrawler module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-crawlers.Market1501DataCrawler">crawlers.Market1501DataCrawler module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-crawlers.ReidDataCrawler">crawlers.ReidDataCrawler module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-crawlers.VRICDataCrawler">crawlers.VRICDataCrawler module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-crawlers">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="generators.html">generators package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="loss.html">loss package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html">main module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="models.html">models package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimizer.html">optimizer package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scheduler.html">scheduler package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trainer.html">trainer package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html">utils package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vae_gan.html">vae_gan module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="optimizer.html">optimizer package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scheduler.html">scheduler package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="trainer.html">trainer package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vae_gan.html">vae_gan module</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="carzam.html" title="previous chapter">carzam module</a></li>
+      <li>Next: <a href="generators.html" title="next chapter">generators package</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Abhijit Supre.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/source/crawlers.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

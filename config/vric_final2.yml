@@ -1,0 +1,61 @@
+EXECUTION:
+  MODEL_SERVING: None
+  EPOCHS: 120
+  TEST_FREQUENCY: 5
+  CRAWLER: VRICDataCrawler
+
+SAVE:
+  MODEL_VERSION: 2
+  MODEL_CORE_NAME: "vric_final"
+  MODEL_BACKBONE: "res50"
+  MODEL_QUALIFIER: "all"
+  DRIVE_BACKUP: True
+  SAVE_FREQUENCY: 5 # Epoch
+
+DATASET:
+  ROOT_DATA_FOLDER: "Data/VRIC"
+  TRAIN_FOLDER: "train_images"
+  TEST_FOLDER: "gallery_images"
+  QUERY_FOLDER: "probe_images"
+  SHAPE: [104,104]
+
+TRANSFORMATION:
+  NORMALIZATION_MEAN: 0.5
+  NORMALIZATION_STD: 0.5
+  NORMALIZATION_SCALE: 255
+  H_FLIP: 0.0
+  T_CROP: False
+  RANDOM_ERASE: False
+  RANDOM_ERASE_VALUE: 0.5
+  CHANNELS: 3
+  BATCH_SIZE: 72
+  INSTANCES: 12
+  WORKERS: 8
+
+MODEL:
+  MODEL_BASE: 'resnet50'
+  MODEL_ARCH: 'Resnet'
+  EMB_DIM: 2048
+  MODEL_NORMALIZATION: 'gn'
+  MODEL_KWARGS: '{"attention":"cbam", "secondary_attention":4, "input_attention":"true"}'
+
+LOSS:
+  LOSSES: ['SoftmaxLabelSmooth', 'TripletLoss']
+  LOSS_KWARGS: [{'soft_dim':2811, 'eps':0.2}, {'margin':0.3, 'mine':'hard'}]
+  LOSS_LAMBDAS: [0.5, 1.0]
+
+OPTIMIZER:
+  OPTIMIZER_NAME: "AdamW"
+  OPTIMIZER_KWARGS: '{}'
+  BASE_LR: 0.00001
+  LR_BIAS_FACTOR: 1.0
+  WEIGHT_DECAY: 0.0005
+  WEIGHT_BIAS_FACTOR: 0.0005
+  FP16: True
+
+SCHEDULER:
+  LR_SCHEDULER: 'FineGrainedSteppedLR'
+  LR_KWARGS: '{"lr_ops":[[1,"+",1e-5], [2,"+",1e-5], [3,"+",1e-5], [4,"+",1e-5],  [5,"+",1e-5], [6,"+",1e-5], [7,"+",1e-5], [8,"+",1e-5], [9,"+",1e-5], [20,"*",0.6], [25,"*",0.6], [35,"*",0.6], [45,"*",0.6]]}'
+
+LOGGING:
+  STEP_VERBOSE: 100 # Batch
